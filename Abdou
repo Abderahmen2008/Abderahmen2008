@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calisthenics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px;
+            max-width: 800px;
+        }
+        .button {
+            background-color: #feb47b;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            margin: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #ff7e5f;
+        }
+        .options {
+            display: none;
+            margin: 20px;
+        }
+        .options button {
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .options button:hover {
+            background-color: #feb47b;
+        }
+        .program {
+            display: none;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+        .program h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .program table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            margin-top: 20px;
+        }
+        .program th, .program td {
+            border: 1px solid #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .program th {
+            background-color: #feb47b;
+        }
+        .program td {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .thank-you {
+            display: none;
+            margin: 20px;
+        }
+        .thank-you a {
+            color: #feb47b;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .thank-you a:hover {
+            text-decoration: underline;
+        }
+        .heart-icon {
+            font-size: 2em;
+            color: #ff7e5f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calisthenics</h1>
+        <p>
+            الكاليسثنكس هو نوع من التمارين الرياضية التي تعتمد على وزن الجسم فقط دون الحاجة إلى أوزان إضافية. تركز هذه التمارين على بناء القوة والمرونة والتحمل، وتعتبر من الأساليب الفعالة لتحسين اللياقة البدنية بشكل عام. تتضمن تمارين الكاليسثنكس الشهيرة مثل تمرين الضغط، السحب، والقرفصاء.
+        </p>
+        <button class="button" onclick="showOptions()">احصل على برنامج</button>
 
+        <div class="options" id="options">
+            <button onclick="showProgram('beginner')">مبتدئ</button>
+            <button onclick="showProgram('intermediate')">متوسط</button>
+            <button onclick="showProgram('advanced')">متقدم</button>
+        </div>
+
+        <div id="program" class="program"></div>
+
+        <div id="thank-you" class="thank-you">
+            <p>شكراً لك على زيارة موقعنا <span class="heart-icon">&#10084;</span></p>
+            <a href="https://www.instagram.com/abdou_ssj1?igsh=MTB1eXhzMzQ3cmliNg==" target="_blank">قم بزيارتنا على الإنستغرام</<a>
+        </div>
+    </div>
+
+    <script>
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
+        }
+
+        function showProgram(level) {
+            const programDiv = document.getElementById('program');
+            const thankYouDiv = document.getElementById('thank-you');
+            
+            let programHTML = '';
+            
+            if (level === 'beginner') {
+                programHTML = `
+                    <h2>برنامج تدريب مبتدئ - Push Pull Leg</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اليوم</th>
+                                <th>التمرين 1</th>
+                                <th>التمرين 2</th>
+                                <th>التمرين 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>اليوم 1</td>
+                                <td>ضغط صدر</td>
+                                <td>ضغط الصدر على كرسي</td>
+                                <td>تمرين المتوازي</td>
+                            </tr>
+                            <tr>
+                                <td>اليوم 2</td>
+                                <td>تمرين العقلة</td>
+                                <td>تمرين  العقلة المعكوسة</td>
+                                <td>تمرين سحب الاسترالية </td>
+                            </tr>
+                            <tr>
+                                <td>اليوم 3</td>
+                                <td>سكوات</td>
+                                <td>تمرين بطن</td>
+                                <td>تمرين  بيسطول سكوات</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+            } else if (level === 'intermediate') {
+                programHTML = `
+                    <h2>برنامج تدريب متوسط - Push Pull Leg</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اليوم</th>
+                                <th>التمرين 1</th>
+                                <th>التمرين 2</th>
+                                <th>التمرين 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>اليوم 1</td>
+                                <td>ضغط صدر مائل</td>
+                                <td>ديبس</td>
+                                <td>تمرين ضغط الواسع والضغط الماسي</td>
+                            </tr>
+                            <tr>
+                                <td>اليوم 2</td>
+                                <td>تمرين البايك بوش اب</td>
+                                <td>تمرين ترايسيبس متوازي</td>
+                                <td>تمرين ضغط الماسي</td>
+                            </tr>
+                            <tr>
+                                <td>اليوم 3</td>
+                                <td>تمرين  jumping squat</td>
+                                <td>تمرين leg raises </td>
+                                <td>تمرين  سوبر سات عقلة ديقة والواسعة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+            } else if (level === 'advanced') {
+                programHTML = `
+                    <h2>برنامج تدريب متقدم - Push Pull Leg</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اليوم</th>
+                                <th>التمرين 1</th>
+                                <th>التمرين 2</th>
+                                <th>التمرين 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>اليوم 1</td>
+                                <td>ضغط صدر بوزن ثقيل</td>
+                                <td> ديبس بار</td>
+                                <td>(عشرة عدات ضغط بعدها 10عدات في تمرين المتوازي)</td>
+                            </tr>
+                            <tr>
+                                <td>اليوم 2</td>
+                                <td>تالعقلة الواسعة</td>
+                                <td>تمرين ال عقلة المعكوسة والعقلة العادية</td>
+                                <td>australien pull up</td>
+                            </tr>
+                            <tr>
+                                <td>اليوم 3</td>
+                                <td>سكوات مع القفز</td>
+                                <td>تمرين L-sit</td>
+                                <td>تمرين pistol squat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+            }
+
+            programDiv.innerHTML = programHTML;
+            programDiv.style.display = 'block';
+            thankYouDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
